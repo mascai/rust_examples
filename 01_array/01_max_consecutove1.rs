@@ -17,7 +17,28 @@ Output: 2
 
 use std::cmp;
 
+// Solution 1 (while)
 
+impl Solution {
+    pub fn find_max_consecutive_ones(nums: Vec<i32>) -> i32 {
+        let mut res: i32 = 0;
+        let mut cur: i32 = 0;
+        let mut i = 0;
+        while i < nums.len() {
+            if nums[i] == 1 {
+                cur += 1;
+                res = cmp::max(res, cur);
+            } else {
+                cur = 0;
+            }
+            i += 1;
+        }
+        return res;
+    }
+}
+
+
+// Solution 2 (for cycle)
 impl Solution {
     pub fn find_max_consecutive_ones(nums: Vec<i32>) -> i32 {
         let mut res: i32 = 0;
