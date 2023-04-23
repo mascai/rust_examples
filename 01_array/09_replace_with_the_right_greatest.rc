@@ -8,7 +8,7 @@ use std::cmp;
 
 impl Solution {
     pub fn replace_elements(arr: Vec<i32>) -> Vec<i32> { 
-        let mut suff: Vec<i32> = vec![-1; arr.len()];
+        let mut suff: Vec<i32> = vec![-1; arr.len()]; // use additional vector, because input vector is immutable
         let mut cur_max = arr[arr.len() - 1];
         
         for i in (0..arr.len() - 1).rev() {
