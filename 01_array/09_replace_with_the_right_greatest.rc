@@ -1,0 +1,20 @@
+/* 
+https://leetcode.com/explore/learn/card/fun-with-arrays/511/in-place-operations/3259/
+*/
+
+
+use std::cmp;
+
+
+impl Solution {
+    pub fn replace_elements(arr: Vec<i32>) -> Vec<i32> { 
+        let mut suff: Vec<i32> = vec![-1; arr.len()];
+        let mut cur_max = arr[arr.len() - 1];
+        
+        for i in (0..arr.len() - 1).rev() {
+            cur_max = cmp::max(cur_max, arr[i + 1]);
+            suff[i] = cur_max;
+        }
+        return suff;
+    }
+}
