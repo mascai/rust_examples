@@ -1,8 +1,5 @@
-// This is the main function
-
 struct Cat;
 struct Dog;
-
 
 trait Say {
     fn say(&self);
@@ -17,14 +14,23 @@ impl Say for Cat {
 
 impl Say for Dog {
     fn say(&self) {
-        println!("Wow");
+        println!("Wow")
     }
+}
+
+
+fn say_twice<T: Say>(t: &T) {
+    t.say();
+    t.say();
+}
+
+
+fn say_triple<T: Say>(t: &T) {
+    t.say();
+    say_twice(t)
 }
 
 fn main() {
     let cat = Cat;
-    cat.say();
-    
-    let dog = Dog;
-    dog.say();
+    say_triple(&cat);
 }
