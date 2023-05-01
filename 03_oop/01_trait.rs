@@ -19,18 +19,13 @@ impl Say for Dog {
 }
 
 
-fn say_twice<T: Say>(t: &T) {
+fn say2<T: Say>(t: &T) {
     t.say();
     t.say();
 }
 
-
-fn say_triple<T: Say>(t: &T) {
-    t.say();
-    say_twice(t)
-}
 
 fn main() {
     let cat = Cat;
-    say_triple(&cat);
+    say2(&cat);
 }
