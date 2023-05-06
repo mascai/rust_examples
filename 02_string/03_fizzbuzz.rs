@@ -11,6 +11,29 @@ answer[i] == i (as a string) if none of the above conditions are true.
 */
 
 
+// Solution1
+
+impl Solution {
+    pub fn fizz_buzz(n: i32) -> Vec<String> {
+
+        let res = (1..(n+1)).map(|i| {
+            if i % 15 == 0 {
+                "FizzBuzz".to_string()
+            } else if i % 5 == 0 {
+                "Buzz".to_string()
+            } else if i % 3 == 0 {
+                "Fizz".to_string()
+            } else {
+                i.to_string()
+            }
+        }).collect();
+        return res;
+    }
+}
+
+
+// Solution2
+
 impl Solution {
     pub fn fizz_buzz(n: i32) -> Vec<String> {
         let mut res = Vec::new();
