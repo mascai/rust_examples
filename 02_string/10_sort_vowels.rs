@@ -2,7 +2,31 @@
 
 */
 
+// Solution 1
 
+impl Solution {
+    pub fn sort_vowels(s: String) -> String {
+        let vowels = "aeiouAEIOU";
+        let mut sorted_vowels: Vec<char> = s.chars()
+            .filter(|&ch| { vowels.contains(ch)}).collect();
+        sorted_vowels.sort();
+
+        let mut new_string = String::new();
+        let mut idx = 0;
+        for c in s.chars() {
+            if vowels.contains(c) {
+                new_string.push(sorted_vowels[idx]);
+                idx += 1;
+            } else {
+                new_string.push(c);
+            }
+        }
+        return new_string;
+    }
+    
+}
+    
+//Solution 2
 impl Solution {
     pub fn is_vowel(ch: char) -> bool {
         return ch == 'a' || ch == 'e' || ch == 'i' || ch == 'o' || ch == 'u' ||
